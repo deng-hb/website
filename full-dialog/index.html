@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1 ,minimum-scale=1">
+  <meta name="Author" content="dendnight">
+  <meta name="Keywords" content="dialog,full-dialog,全屏,弹窗">
+  <meta name="Description" content="">
+  <link rel="shortcut icon" href="http://www.dendnight.com/images/favicon.ico">
+  <title>full-dialog</title>
+ </head>
+ <script src="full-dialog.js"></script>
+ <script>
+
+ </script>
+ <body>
+  <div id="full-dialog">
+	<div >
+		this is fullDialog 
+	</div>
+	<a href="javascript:show1();">show fullDialog1</a>
+  </div>
+  <div id="full-dialog1">
+	<div >
+		this is fullDialog 1
+	</div>
+	<a href="javascript:show2();">show fullDialog2</a>
+  </div>
+  <div id="full-dialog2">
+	<div >
+		this is fullDialog 2
+	</div>
+	<a href="javascript:show()">show fullDialog</a>
+  </div>
+  <a href="javascript:show();">show fullDialog</a>
+
+  <div>
+	<h3>
+	 这是一个javascript弹框插件，独立，微型，简便
+	</h3>
+	<p>
+		<b>使用方法</b>
+		<dl>
+			<dd>1.<a href="full-dialog.js">下载</a></dd>
+			<dd>2.引入页面&lt;script src="full-dialog.js"&gt;&lt;/script&gt;</dd>
+			<dd>3.在window.onload函数里面var dialog = new fullDialog('full-dialog');dialog.show();//显示弹框，dialog.hide()// 隐藏弹框</dd>
+		</dl>
+	</p>
+  </div>
+
+  <iframe src="iframe.html" width="80%">
+	
+  </iframe>
+ <script>
+	var dialog = new fullDialog('full-dialog');
+	var dialog1 = new fullDialog('full-dialog1');
+	var dialog2 = new fullDialog('full-dialog2');
+
+	function show(){
+		dialog.show();
+	}
+
+	function show1(){
+		dialog1.show();
+	}
+	
+	function show2(){
+		dialog2.show();
+	}
+
+ </script>
+ </body>
+</html>

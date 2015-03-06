@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1 ,minimum-scale=1">
+  <meta name="Author" content="dendnight">
+  <meta name="Keywords" content="dialog,full-dialog,全屏,弹窗">
+  <link rel="shortcut icon" href="http://www.dendnight.com/images/favicon.ico">
+  <meta name="Description" content="">
+  <title>full-dialog</title>
+ </head>
+ <script src="full-dialog.js"></script>
+ <body>
+  <div id="full-dialog3">
+	12312312
+  </div>
+  <div id="full-dialog4">
+	1231231211
+  </div>
+  <a href="javascript:show3();">click me</a><br/><br/><br/><br/>
+  
+  <a href="javascript:show4();">click me</a><br/><br/>
+  <a href="http://dendnight.com/full-dialog/iframe.html" target="_blank">open iframe</a>
+ <script>
+	
+	var dialog3 = new fullDialog('full-dialog3');
+	var dialog4 = new fullDialog('full-dialog4');
+
+	function show3(){
+		dialog3.show();
+	}
+	
+	function show4(){
+		dialog4.show();
+	}
+ </script>
+ </body>
+</html>
