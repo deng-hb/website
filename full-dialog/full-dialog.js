@@ -1,12 +1,20 @@
 /*!
  *  full-dialog.js by denghb
  *  2014-8-10 1:10
+ *  update 2015-03-14
+ *  note:
+ *     新增配置{'id',fun close,fun ok}
  */
+
 var fullDialog = function(id) {
+	return new full_dialog(id);
+};
+ 
+var full_dialog = function(id)
+{
 	this.init(id);
 };
-
-fullDialog.prototype = {
+full_dialog.prototype = {
 	// 自己的
 	window : null,
 	// 自己的
@@ -242,7 +250,7 @@ fullDialog.prototype = {
 };
 
 window.onresize = function() {
-	fullDialog.prototype.resize();
+	full_dialog.prototype.resize();
 };
 
 if(!document.getElementsByClassName){
