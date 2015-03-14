@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1 ,minimum-scale=1">
+  <meta name="Author" content="dendnight">
+  <meta name="Keywords" content="dialog,full-dialog,全屏,弹窗">
+  <meta name="Description" content="">
+  <link rel="shortcut icon" href="http://www.dendnight.com/images/favicon.ico">
+  <title>full-dialog</title>
+ </head>
+ <!--<script src="full-dialog.js"></script> -->
+
+ <style type="text/css">
+	.full-dialog-mask
+	{
+		display: none;
+		background: rgb(82,82,82);
+		opacity: 0.8;
+		overflow: auto;
+		position: absolute;
+		top:0;
+		left: 0;
+		margin: 0;
+		width:100%;
+		height:100%;
+		z-index: 10000;
+	}
+	.full-dialog
+	{
+		display: none;
+		position: absolute;
+		left:50%;
+		top:50%;
+		width:400px;
+		height:200px;
+		margin-left:-200px;
+		margin-top:-100px;
+  		border-radius: 2px;
+		background: rgb(255,255,255);
+		z-index: 11000;
+		box-shadow: 0px 1px 1px 1px rgba(0,0,0,.1);
+	}
+	.full-dialog-title
+	{
+		height:30px;
+		width:100%;
+		line-height: 30px;
+		background: #ddd;
+		float: left;
+	}
+	.full-dialog-x
+	{
+		float: right;
+		padding:0 5px;
+		cursor:pointer;
+	}
+	.full-dialog-x:hover
+	{
+		color: #aaa;
+	}
+	.full-dialog-content
+	{
+		height:50px;
+		line-height: 50px;
+		padding: 20px;
+	}
+	.full-dialog-buttons
+	{
+		width:100%;
+		text-align: center;
+		position:absolute;
+  		bottom:10px;
+	} 
+	.full-dialog-button 
+	{
+		display: inline-block;
+		zoom: 1;
+		line-height: normal;
+		white-space: nowrap;
+		vertical-align: baseline;
+		text-align: center;
+		cursor: pointer;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		font-family: inherit;
+		font-size: 100%;
+		padding: 0.4em 1em;
+		color: #444;
+		color: rgba(0,0,0,0.80);
+		border: 1px solid #999;
+		border: none rgba(0,0,0,0);
+		background-color: #E6E6E6;
+		text-decoration: none;
+		border-radius: 1px;
+		margin: 0 20px;
+	}
+ </style>
+ <script>
+ 	var fullDialog = function(config) {
+		return new full_dialog(config);
+	};
+
+	/**
+	 * 处理配置
+	 * {
+	 * 	mask:true,
+	 *  content:object,
+	 *  isShow:false,
+	 * }
+	 */
+	var full_dialog = function(config)
+	{
+
+		if(config)
+		{
+			if(false === config.mask)
+			{
+				this.isMask = false;
+			}
+			if(config.title)
+			{
+				this.title = config.title;
+			}
+			if(config.buttons)
+			{
+				this.buttons = config.buttons;
+			}
+			if(config.content)
+			{
+				this.content = config.content;
+			}
+		}
+
+		// 初始化
+		this.init();
+	};
+	full_dialog.prototype = {
+		_window : null,
+		_document : null,
+		title : '标题',
+		// 是否有遮罩
+		isMask : true,
+		// 遮罩层对象
+		mask : null,
+		// 
+		dialog :null,
+		buttons : [],
+		rightCloseBtn : true,
+		init : function() 
+		{
+			// 判断是否有父窗体设置window、document有效的对象
+			if(window.top != window.self){
+				this._window = top.window;
+				this._document = top.document;
+			}else{
+				this._window = window;
+				this._document = document;
+			}
+			// 是否初始化遮罩层
+			if(this.isMask)
+			{
+				this.initMask();
+			}
+
+			this.initDialog();
+
+		},
+		initMask : function()
+		{
+			var document = this._document;
+			// 创建一个遮罩对象
+			var mask = document.createElement('div');
+			// 设置样式
+			mask.setAttribute('class','full-dialog-mask');
+			//mask.setAttribute('style','display: none');
+			// 将遮罩添加body
+			document.body.appendChild(mask);
+
+			this.mask = mask;
+		},
+		initDialog : function()
+		{
+			var _this = this,document = _this._document;
+
+			// 主要弹框
+			var dialog = document.createElement('div');
+			dialog.setAttribute('class','full-dialog');
+			document.body.appendChild(dialog);
+
+			// 弹框标题
+			if(_this.title)
+			{
+				var dialog_title = document.createElement('div');
+				dialog_title.setAttribute('class','full-dialog-title');
+				dialog_title.innerHTML = '&nbsp;' + this.title;
+				dialog.appendChild(dialog_title);
+
+				// 右边关闭按钮
+				if(this.rightCloseBtn)
+				{
+					var close = document.createElement('div');
+					close.setAttribute('class','full-dialog-x');
+					var x = document.createTextNode('×');
+					close.appendChild(x);
+					dialog_title.appendChild(close);
+
+					// 点击
+					close.onclick = function() {
+						_this.hide();
+					};
+
+				}
+
+			}
+			// 内容
+			var content = document.createElement('div');
+			content.setAttribute('class','full-dialog-content');
+			content.innerHTML = _this.content;
+			dialog.appendChild(content);
+
+			// 按钮
+			var btn_array = _this.buttons;
+			var btn_length = btn_array.length;
+			if(0 < btn_length)
+			{
+
+				var buttons = document.createElement('div');
+				buttons.setAttribute('class','full-dialog-buttons');
+				dialog.appendChild(buttons);
+
+				for (var i=0;i<btn_length;i++)
+				{
+					var button = document.createElement('input');
+					button.setAttribute('class','full-dialog-button');
+					button.setAttribute('type','button');
+					
+					button.setAttribute('value',btn_array[i].txt);
+					button.onclick = btn_array[i].func;
+					buttons.appendChild(button);
+				}
+			}
+
+			_this.dialog = dialog; 
+		},
+		hide : function()
+		{
+			if(this.isMask)
+			{
+				this.mask.style.display = 'none';
+			}
+			this.dialog.style.display = 'none';
+			this._document.body.style.overflow = 'auto';
+		},
+		show : function()
+		{
+			if(this.isMask)
+			{
+				this.mask.style.display = 'block';
+			}
+			this.dialog.style.display = 'block';
+			this._document.body.style.overflow = 'hidden';
+		}
+	};
+
+	var dialog = null;
+	window.onload = function(){
+		dialog = fullDialog({mask:true,
+							buttons:
+							[{
+								txt:'取消',
+								func:function(){
+									dialog.hide();
+								}
+							},
+							{
+								txt:'确认',
+								func:function(){
+									dialog.hide();
+									alert('你按了确认');
+								}
+							}],
+							content:'是否确定要发货？'
+							});
+	}
+	var showDialog = function()
+	{
+		dialog.show();
+	}
+	var hideDialog = function()
+	{
+		dialog.hide();
+	}
+ </script>
+ <body>
+  saflsahdksad
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <a href="javascript:showDialog();" >show</a>
+  <br>
+  <br>
+  <br>
+  <a href="javascript:hideDialog();" >hide</a>
+ </body>
+</html>
