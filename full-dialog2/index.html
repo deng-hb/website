@@ -252,8 +252,12 @@
 			{
 				this.mask.style.display = 'none';
 			}
-			this.dialog.style.display = 'none';
-			this._document.body.style.overflow = 'auto';
+			try
+			{
+				this.dialog.style.display = 'none';
+				this._document.getElementsByTagName('html')[0].style.overflow = 'auto';
+				this._document.body.style.overflow = 'auto';
+			}catch(e){}
 		},
 		show : function()
 		{
@@ -262,7 +266,12 @@
 				this.mask.style.display = 'block';
 			}
 			this.dialog.style.display = 'block';
-			this._document.body.style.overflow = 'hidden';
+			try
+			{
+				this._document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+				this._document.body.style.overflow = 'hidden';
+				this._window.scrollTo(0, 0);
+			}catch(e){}
 		}
 	};
 
@@ -310,5 +319,8 @@
   <br>
   <br>
   <a href="javascript:hideDialog();" >hide</a>
+  <br>
+  <br>
+  <div style="height:2000px;width:1px;"></div>
  </body>
 </html>
