@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh">
  <head>
@@ -14,33 +15,16 @@
  <style type="text/css">
 	.full-dialog-mask
 	{
-		display: none;
-		background: rgb(82,82,82);
-		opacity: 0.8;
-		overflow: auto;
-		position: absolute;
-		top:0;
-		left: 0;
-		margin: 0;
-		width:100%;
-		height:100%;
-		z-index: 10000;
+		opacity:0.5;
+		filter: alpha(opacity=50);
 	}
+
 	.full-dialog
 	{
 		display: none;
-		position: absolute;
-		left:50%;
-		top:50%;
-		width:400px;
-		height:200px;
-		margin-left:-200px;
-		margin-top:-100px;
-  		border-radius: 2px;
-		background: rgb(255,255,255);
-		z-index: 11000;
+	  	border-radius: 2px;
 		box-shadow: 0px 1px 1px 1px rgba(0,0,0,.1);
-	}
+	} 
 	.full-dialog-title
 	{
 		height:30px;
@@ -139,8 +123,8 @@
 		this.init();
 	};
 	full_dialog.prototype = {
-		_window : null,
-		_document : null,
+		window : null,
+		document : null,
 		title : '标题',
 		// 是否有遮罩
 		isMask : true,
@@ -149,16 +133,32 @@
 		// 
 		dialog :null,
 		buttons : [],
+		// 显示右上角关闭按钮
 		rightCloseBtn : true,
+		// 可视宽度
+		width : function() {
+			return this.window.innerWidth || this.document.documentElement.clientWidth
+					|| this.document.body.clientWidth;
+		},
+		// 可视高度
+		height : function() {
+			return this.window.innerHeight || this.document.documentElement.clientHeight
+					|| this.document.body.clientHeight;
+		},
+		// 滚动条高度
+		scrollTop : function() {
+			return this.window.scrollY || this.window.pageYOffset || this.document.documentElement.scrollTop
+					|| this.document.body.scrolltop || 0;
+		},
 		init : function() 
 		{
 			// 判断是否有父窗体设置window、document有效的对象
 			if(window.top != window.self){
-				this._window = top.window;
-				this._document = top.document;
+				this.window = top.window;
+				this.document = top.document;
 			}else{
-				this._window = window;
-				this._document = document;
+				this.window = window;
+				this.document = document;
 			}
 			// 是否初始化遮罩层
 			if(this.isMask)
@@ -171,30 +171,44 @@
 		},
 		initMask : function()
 		{
-			var document = this._document;
 			// 创建一个遮罩对象
-			var mask = document.createElement('div');
+			var mask = this.document.createElement('div');
 			// 设置样式
 			mask.setAttribute('class','full-dialog-mask');
-			//mask.setAttribute('style','display: none');
+			var style = mask.style;
+			style.display = 'none';
+			style.position = 'absolute';
+			style.left = 0;
+			style.margin = 0;
+			style.zIndex = 10000;
+			style.background = '#000';
+			style.opacity = 0.5;
 			// 将遮罩添加body
-			document.body.appendChild(mask);
-
+			this.document.body.appendChild(mask);
+			// 将mask保存
 			this.mask = mask;
 		},
 		initDialog : function()
 		{
-			var _this = this,document = _this._document;
 
 			// 主要弹框
-			var dialog = document.createElement('div');
+			var dialog = this.document.createElement('div');
 			dialog.setAttribute('class','full-dialog');
-			document.body.appendChild(dialog);
+			var style = dialog.style;
+			style.display = 'none';
+			// 宽度
+			style.width = '400px';
+			// 高度
+			style.height = '220px';
+			style.background = '#fff';
+			style.zIndex = 11000;
+
+			this.document.body.appendChild(dialog);
 
 			// 弹框标题
-			if(_this.title)
+			if(this.title)
 			{
-				var dialog_title = document.createElement('div');
+				var dialog_title = this.document.createElement('div');
 				dialog_title.setAttribute('class','full-dialog-title');
 				dialog_title.innerHTML = '&nbsp;' + this.title;
 				dialog.appendChild(dialog_title);
@@ -202,12 +216,13 @@
 				// 右边关闭按钮
 				if(this.rightCloseBtn)
 				{
-					var close = document.createElement('div');
+					var close = this.document.createElement('div');
 					close.setAttribute('class','full-dialog-x');
-					var x = document.createTextNode('×');
+					var x = this.document.createTextNode('×');
 					close.appendChild(x);
 					dialog_title.appendChild(close);
 
+					var _this = this;
 					// 点击
 					close.onclick = function() {
 						_this.hide();
@@ -217,7 +232,7 @@
 
 			}
 			// 内容
-			var content = document.createElement('div');
+			var content = this.document.createElement('div');
 			content.setAttribute('class','full-dialog-content');
 			content.innerHTML = _this.content;
 			dialog.appendChild(content);
@@ -228,13 +243,13 @@
 			if(0 < btn_length)
 			{
 
-				var buttons = document.createElement('div');
+				var buttons = this.document.createElement('div');
 				buttons.setAttribute('class','full-dialog-buttons');
 				dialog.appendChild(buttons);
 
 				for (var i=0;i<btn_length;i++)
 				{
-					var button = document.createElement('input');
+					var button = this.document.createElement('input');
 					button.setAttribute('class','full-dialog-button');
 					button.setAttribute('type','button');
 					
@@ -244,40 +259,45 @@
 				}
 			}
 
-			_this.dialog = dialog; 
+			this.dialog = dialog; 
 		},
 		hide : function()
 		{
 			if(this.isMask)
 			{
 				this.mask.style.display = 'none';
+				this.document.getElementsByTagName('html')[0].style.overflow = '';
+				this.document.body.style.overflow = 'auto';
 			}
-			try
-			{
-				this.dialog.style.display = 'none';
-				this._document.getElementsByTagName('html')[0].style.overflow = 'auto';
-				this._document.body.style.overflow = 'auto';
-			}catch(e){}
+			this.dialog.style.display = 'none';
 		},
+		// 显示弹框
 		show : function()
 		{
 			if(this.isMask)
 			{
-				this.mask.style.display = 'block';
+				var style = this.mask.style;
+				style.display = 'block';
+				// 
+				style.width = this.width() + 'px';
+				style.height = this.height() + 'px';
+				style.top = this.scrollTop() + 'px';
+				// 隐藏滚动条
+				this.document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+				this.document.body.style.overflow = 'hidden';
+
 			}
-			this.dialog.style.display = 'block';
-			try
-			{
-				this._document.getElementsByTagName('html')[0].style.overflow = 'hidden';
-				this._document.body.style.overflow = 'hidden';
-				this._window.scrollTo(0, 0);
-			}catch(e){}
+			var style = this.dialog.style;
+			style.position = 'absolute';
+			style.left = (this.width() - 400) / 2 + 'px';
+			style.top = (this.scrollTop() + (this.height() - 220) / 2 ) + 'px';
+			style.display = 'block';
 		}
 	};
 
-	var dialog = null;
+	var dialog = null,dialog2 = null;
 	window.onload = function(){
-		dialog = fullDialog({mask:true,
+		dialog = fullDialog({
 							buttons:
 							[{
 								txt:'取消',
@@ -294,23 +314,43 @@
 							}],
 							content:'是否确定要发货？'
 							});
+		// 第二个
+		dialog2 = fullDialog({mask:false,
+							buttons:
+							[{
+								txt:'取消',
+								func:function(){
+									dialog2.hide();
+								}
+							},
+							{
+								txt:'确认',
+								func:function(){
+									dialog2.hide();
+									alert('你按了确认');
+								}
+							}],
+							content:'我是没有遮罩的弹框、、'
+							});
+
+
 	}
 	var showDialog = function()
 	{
 		dialog.show();
 	}
-	var hideDialog = function()
+	var showDialog2 = function()
 	{
-		dialog.hide();
+		dialog2.show();
+	}
+	var hideDialog2 = function()
+	{
+		dialog2.hide();
 	}
  </script>
  <body>
-  saflsahdksad
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  Down ↓↓↓
+  <div style="height:200px;width:1px;"></div>
   <br>
   <br>
   <br>
@@ -318,7 +358,15 @@
   <br>
   <br>
   <br>
-  <a href="javascript:hideDialog();" >hide</a>
+  <div style="height:200px;width:1px;"></div>
+  <br>
+  <br>
+  <br>
+  <a href="javascript:showDialog2();" >show2</a>
+  <br>
+  <br>
+  <br>
+  <a href="javascript:hideDialog2();" >hide2</a>
   <br>
   <br>
   <div style="height:2000px;width:1px;"></div>
