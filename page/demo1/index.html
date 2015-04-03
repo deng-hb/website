@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<title>云卖招聘场景应用</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/idangerous.swiper.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<script type="text/javascript">
+	if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+		var version = parseFloat(RegExp.$1);
+		if(version>2.3){
+			var phoneScale = parseInt(window.screen.width)/640;
+			document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+		}else{
+			document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		}
+	}else{
+		document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+	}
+	//微信去掉下方刷新栏
+	if(navigator.userAgent.indexOf('MicroMessenger') >= 0){
+		document.addEventListener('WeixinJSBridgeReady', function() {
+			//WeixinJSBridge.call('hideToolbar');
+		});
+	}
+	</script>
+</head>
+<body>
+	<div class="spinner">
+    	<div class="rect1"></div>
+    	<div class="rect2"></div>
+    	<div class="rect3"></div>
+    	<div class="rect4"></div>
+        <p>正在给力加载中</p>
+    </div>
+	<section class="sec_main">
+		<section class="slide">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide sec_a">
+				<span class="jt">&nbsp;</span>
+				<div class="logo animated fadeInLeft tim_01">JOIN&nbsp;US</div>
+		    	<ul>
+		    		<li class="animated fadeInRight Big tim_02"><img src="images/a_01.png" alt=""></li>
+		    		<li class="animated fadeInUp tim_04"><img src="images/a_02.png" alt=""></li>
+		    		<li class="yunmall animated fadeInLeft tim_03"><img src="images/a_03.png" alt=""></li>
+		    	</ul>
+		    </div>
+		    <div class="swiper-slide sec_b">
+		    	<div class="fx">
+		    		<img src="images/fx.png" alt="">
+		    		<div class="bg"></div>
+		    	</div>
+		    	<dl>
+		    		<dt class="animated bounceInUp"><img src="images/b_01.png" alt=""></dt>
+		    		<dd class="animated fadeIn tim_02" style="text-align:justify">全球首家移动社交电商-云卖平台由云产品库和自主开发的商品分销系统组成，利用微信、微博、QQ、陌陌等社交软件和平台传播，用户在传播、购物的同时可以获得推广佣金。实现1秒开店、2秒上架、3秒分销全球最快的开店模式。</dd>
+		    	</dl>
+		    	<p class="fxa"><img src="images/b_02.png" class="animated flipInX tim_03" alt=""></p>
+		    </div>
+		    <div class="swiper-slide sec_c">
+		    	<div class="c_center animated fadeInUp tim_01"></div>
+		    	<p class="animated fadeInDown"><img src="images/c_01.png" alt=""></p>
+		    	<ul class="zw">
+		    		<li><div class="animated bounceInLeft tims_07">大客户经理（5名）</div><span class="animated zoomIn tims_01"></span></li>
+		    		<li class="r"><div class="animated bounceInRight tims_08"> 渠道经理（5名）</div><span class="animated zoomIn tims_02"></span></li>
+		    		<li><div class="animated bounceInLeft tims_09"> 招商经理（5名）</div><span class="animated zoomIn tims_03"></span></li>
+		    		<li class="r"><div class="animated bounceInRight tims_10">招商专员（30名）</div><span class="animated zoomIn tims_04"></span></li>
+		    		<li><div class="animated bounceInLeft tims_11">招商文员 （2名）</div><span class="animated zoomIn tims_05"></span></li>
+		    	</ul>
+		    </div>
+		    <div class="swiper-slide sec_c sec_d">
+		    	<div class="c_center animated fadeInDown" style="height:100%;"></div>
+		    	<ul class="zw2">
+		    		<li><div class="animated bounceInLeft tims_07">客服推广（10名）</div><span class="animated zoomIn tims_01"></span></li>
+		    		<li class="r"><div class="animated bounceInRight tims_08">文案策划（2名）</div><span class="animated zoomIn tims_02"></span></li>
+		    		<li><div class="animated bounceInLeft tims_09"> 网站编辑（2名）</div><span class="animated zoomIn tims_03"></span></li>
+		    		<li class="r"><div class="animated bounceInRight tims_10">网页设计/美工<br>（2名）</div><span class="animated zoomIn tims_04"></span></li>
+		    		<li><div class="animated bounceInLeft tims_11">UI设计师（2名）</div><span class="animated zoomIn tims_05"></span></li>
+		    	</ul>
+		    </div>
+		    <div class="swiper-slide sec_c sec_d">
+		    	<div class="c_center animated fadeInDown"></div>
+		    	<ul class="zw3">
+		    		<li><div class="animated bounceInLeft tims_07">数据分析师（2名）</div><span class="animated zoomIn tims_01"></span></li>
+		    		<li class="r"><div class="animated bounceInRight tims_08"> 高级WEB<br>前端工程师（2名）</div><span class="animated zoomIn tims_02"></span></li>
+		    		<li><div class="animated bounceInLeft tims_09">PHP程序员（3名）</div><span class="animated zoomIn tims_03"></span></li>
+		    		<li class="r"><div class="animated bounceInRight tims_10">APP程序开发<br>（2名）</div><span class="animated zoomIn tims_04"></span></li>
+		    	</ul>
+		    	<p>JOIN&nbsp;US</p>
+		    </div>
+		    <div class="swiper-slide sec_e">
+		    	<div class="tel animated bounceInLeft">联系信息</div>
+		    	<div class="e_logo animated bounceInRight tim_02"><img src="images/ad_01.jpg" alt=""></div>
+		    	<div class="dy animated zoomIn tim_04">
+		    		<dl>
+		    			<dt><img src="images/ad_02.jpg" alt=""></dt>
+		    			<dd>云卖-公众号</dd>
+		    		</dl>
+		    	</div>
+		    	<div class="zy animated zoomIn tim_04">
+		    		<dl>
+		    			<dt><img src="images/ad_04.jpg" alt=""></dt>
+		    			<dd>云卖-订阅号</dd>
+		    		</dl>
+		    	</div>
+		    	<div class="xy animated zoomIn tim_04">
+		    		<a href="tel:29066655"><img src="images/ad_03.jpg" alt=""></a>
+		    	</div>
+		    </div>
+		</div>
+	    </section>
+	    <div id="musicWrap" class="u-globalAudio z-play">
+	    	<div class="icon-music"></div>
+			<audio id="mp3" src="mp3/tuihou.mp3" controls="controls" autoplay="autoplay"  style="pointer-events:none;display:none;width:0!important;height:0!important;"></audio>
+		</div>
+		<div class="zw-m">
+		    		<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/1_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+		    			<h3>职位详情：</h3>
+						<ul>
+							<li>具有知名品牌客户来源，熟悉销售渠道，与客户较强的沟通能力。 </li>
+							<li>较好的团队管理能力与适应能力，较强的观察力和应变力。</li>
+							<li>具备较强的学习能力及团队合作精神。 </li>
+							<li>性格外向，强烈的事业心及挑战精神。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/2_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>与代理商的谈判和沟通能力强。 </li>
+							<li>具备快速的学习能力，强烈的市场竞争意识。</li>
+							<li>具有独立工作能力，勇于接受工作挑战，能够承担目标压力。 </li>
+							<li>较强的商务谈判和独立的市场开拓能力，有渠道开发管理经验者优先考虑。</li>
+							<li>具有较强的沟通、交际能力、组织协调能力及团队合作精神，乐于面对挑战。 </li>
+							<li>熟练使用Office办公软件，以及互联网浏览。</li>
+							<li>有较强的项目策划能力和谈判能力，文笔流畅。  </li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/3_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>负责制订各阶段招商计划，布置和安排本部各项工作有计划开展。 </li>
+							<li>负责开展本部门员工业务的培训，指导和帮助本部门员工的工作，不断强化和提高员工的素质。</li>
+							<li>做好招商人员的评核工作，并提拔尖子作为储备管理人员。 </li>
+							<li>负责指导本部门员工对招商合同的管理、建档、查询工作。</li>
+							<li>负责公司的招商工作，对各项业务的洽谈、签约工作进行管理、协调、指 导、监督、审核各项业务合同。 </li>
+							<li>负责完成招商总监交办的其他工作任务。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/4_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>根据招商经理的安排的任务和工作要求制订详细的工作计划并执行。 </li>
+							<li>收集比对市场招商信息，上报给招商经理。</li>
+							<li>根据客户情况，进行分类汇总。 </li>
+							<li>与客户进行招商谈判，在和客户签约后，负责客户入驻的各项手续的办理。</li>
+							<li>全力做好售后服务工作，树立良好的品牌形象，和客户建立良好的互动。 </li>
+							<li>建立客户档案，及时维护，并根据招商状况定时提供报告给招商经理。</li>
+							<li>积极参与公司培训，提高自身专业素质。 </li>
+							<li>完成招商经理交待的其他任务。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/5_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>负责商家资质和商品上架资格审核，部门销售表格制定及回收，处理招商部内部文件处理与保管，招商部对外联系事项，内部电话接听与记录。</li>
+							<li>要懂办公软件（word、excel、PPT）。</li>
+							<li>能承受高压，办事能力高。 </li>
+							<li>中专以上学历，20-28岁。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+		</div>
+		<div class="zw-m2">
+		    		<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/6_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+		    			<h3>职位详情：</h3>
+						<ul>
+							<li>制定完整的微博、微信营销、SEO推广方案。 </li>
+							<li>负责公司官方微博、微信以及SNS网络的内容编辑、日常维护、活动策划、粉丝互动等，提高影响力和关注度。</li>
+							<li>通过有效的运营手段扩大粉丝数及提升粉丝的活跃度、互动率，进行有效的微博、微信营销。 </li>
+							<li>搜集以及分析竞争对手、用户在微博、微信方面的使用习惯，协助制定相应的营销策略。</li>
+							<li>跟踪微博推广效果，分析数据并反馈，总结经验。</li>
+							<li>完成其他相关工作。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/7_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>大专以上学历，新闻类或文秘专业均可。 </li>
+							<li>一年以上文案或网络编辑相关经验，文字功底扎实，能独立策划并撰写宣传软文，曾从事编辑、记者、媒体类相关经验者优先。</li>
+							<li>具有较强的语言表达能力，良好的沟通协作能力和团队合作精神，工作积极主动。 </li>
+							<li>具备基本网络知识，熟悉门户网站编辑、推广流程，有社区、论坛、博客，有网站编辑工作经验者优先，粉丝有一定数量者优先。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/8_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>大专以上学历，新闻类或文秘专业均可。 </li>
+							<li>一年以上文案或网络编辑相关经验，文字功底扎实，能独立策划并撰写宣传软文，曾从事编辑、记者、媒体类相关经验者优先。</li>
+							<li>具有较强的语言表达能力，良好的沟通协作能力和团队合作精神，工作积极主动。 </li>
+							<li>具备基本网络知识，熟悉门户网站编辑、推广流程，有社区、论坛、博客，有网站编辑工作经验者优先，粉丝有一定数量者优先。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/9_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>大专或以上学历，艺术设计或计算机相关专业。 </li>
+							<li>一年以上网站美工工作经验，有丰富的网站设计经验者优先。</li>
+							<li>有良好的色彩搭配、美术功底和设计创意能力，有较好的审美观。 </li>
+							<li>熟练操作Dreamweaver，Photoshop，Illustrator，FLASH，DIV+CSS等网页设计制作软件。</li>
+							<li>适应团队创作要求，善于沟通，能独立进行网站设计制作工作。 </li>
+							<li>应聘时请带上作品。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/10_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>在理解产品需求基础上，进行界面UI设计，负责网站界面UI视觉设计。</li>
+							<li>熟悉并能创意设计出UI设计、软件UI、网页UI、手机UI界面。</li>
+							<li>有较强的图标界面设计功底，有较强的色彩把握能力，极具设计创意，对广告图设计有别具一格创造能力。 </li>
+							<li>负责公司Android平台、PC客户端产品UI界面设计工作。</li>
+							<li>负责手机网站视觉效果和Logo设计、制作。</li>
+							<li>协助产品经理完成公司网站的用户体验优化和改进。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+		</div>
+		<div class="zw-m3">
+		    		<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/11_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+		    			<h3>职位详情：</h3>
+						<ul>
+							<li>数据分析及行业数据的收集和分析。 </li>
+							<li>通过数据对用户行为进行分析和研究，发现数据背后的潜在商业机会与系统风险，提供辅助决策支持。</li>
+							<li>深入理解公司运营业务逻辑，参与海量业务数据的挖掘与建模工作，建立业务数据模型，优化经营效果。 </li>
+							<li>能够基于数据分析得到有价值的信息，为公司运营决策、产品方向、销售策略提供数据支持。</li>
+							<li>定期提供数据分析、行业分析等相关报表。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/12_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>精通HTML5,DIV+CSS,JS有3年以上WEB前端开发经验。 </li>
+							<li>精通Jquery,jQuery Mobile及其他主流JS库可以在日常开发中灵活运用。</li>
+							<li>熟悉bootstrap能做一些基本的Flash技术处理。 </li>
+							<li>熟练解决多种浏览器兼容问题。</li>
+							<li>熟悉互联网用户使用习惯，重视用户体验。 </li>
+							<li>熟悉浏览器调试工具（如：Firebug，Web Developer Tools等）。</li>
+							<li>熟练运用图片编辑工具（如：photoshop）进行设计图切图处理。  </li>
+							<li>要对后台开发语言PHP有一点了解。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/13_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>不限学历，有PHP相关WEB开发经验。 </li>
+							<li>精通PHP+MYSQL编程、PHP OOP编程。</li>
+							<li>精通HTML、XHTML、JavaScript。 </li>
+							<li>熟悉SMARTY，对MVC架构有一定认识。</li>
+							<li>有企业内部MIS系统开发、SAAS软件开发经验者优先。</li>
+							<li>有大型网站构架和性能优化、数据库优化经验者优先。</li>
+							<li>有团队工作经验或带过团队的优先。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+					<div class="zw_l" data-class="animated rollIn">
+		    			<img src="images/14_02.png" class="position" alt="">
+		    			<img src="images/d_01.png" class="show_logo" alt="">
+						<h3>职位详情：</h3>
+						<ul>
+							<li>根据项目开发方案进行代码编写，同时负责IOS和Android平台手机应用程序的设计和开发。 </li>
+							<li>根据测试结果与用户反馈，对产品进行改善和优化。</li>
+							<li>根据开发规模与流程完成应用的设计与编码、测试以及编写完整的技术文档。 </li>
+							<li>负责好后续产品的维护和持续升级。</li>
+						</ul>
+						<p><img src="images/zw_01.png" alt=""></p>
+					</div>
+		</div>
+    </section>
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/idangerous.swiper.min.js"></script>
+	<script type="text/javascript" src="js/swiper.js"></script>
+</body>
+</html>

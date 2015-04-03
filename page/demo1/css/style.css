@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* X CSS Document Y */
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0;}
+body{font:12px "宋体","Arial Narrow",HELVETICA; -webkit-text-size-adjust:100%; line-height:25px;}
+a{color:#333;text-decoration:none}
+a:hover{ text-decoration: none;}
+ul,li{list-style:none; margin:0px; padding:0px;}
+img{border:0;vertical-align:middle;}
+a, img {
+    -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+    tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.upward{ width: 100%; position: fixed; text-align: center; left: 0px; bottom: 0px; z-index: 555; text-align: center;}
+.upward img{ width: 48px;}
+
+.sec_main{ max-width: 640px; margin:0 auto; position: relative; box-shadow: 0px 0px 25px #999; display: none;}
+.sec_main img{ width: 100%;}
+.slide{ width: 100%; height: 100%; overflow: hidden; -webkit-transform: translate3d(0,0,0); background:url(../images/bg.jpg) left top no-repeat; background-size: 100% 100%;}
+.slide img{ width: 100%;}
+.sec_a{ width: 100%; height: 100%; position: relative;}
+.sec_a ul{ margin-top: 30%; overflow: hidden; position: relative;}
+.sec_b{ width: 100%; height: 100%; overflow: hidden;}
+.sec_b dl{ overflow: hidden;}
+.sec_b dt{ overflow: hidden; width: 100%;}
+.sec_b dd{ width: 84%; padding:0 8%; color: #b81d22; font-size: 30px; overflow: hidden; line-height: 60px;}
+.sec_b p{ width: 84%; padding:0 8%; overflow: hidden; padding-top: 10%;}
+.sec_b .fx{ width: 100%; height: 100%; position: fixed; z-index: 500; display: none;}
+.sec_b .fx .bg{ width: 100%; height: 100%; background-color: #000; opacity: 0.8; position: absolute; left: 0; top: 0;}
+.sec_b .fx img{ position: relative; z-index: 500; left: 0; top: 0;}
+.logo{ width: 180px; height: 110px; line-height: 110px; text-align: center; position: absolute; left: 5%; top: 0; background-color: #b81d22; color: #fff; font-weight: bold; font-size: 36px; font-weight: bold;}
+.yunmall{ width: 100%; position: absolute; top: 0;}
+.sec_c{ overflow: hidden; position: relative;}
+.sec_c p{ width: 100%; overflow: hidden; position: relative; z-index: 5;}
+.sec_c ul{ overflow: hidden;}
+.sec_c .zw2{ padding-top: 50px;}
+.zw-m{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 9000; display: none;}
+.zw-m2{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 9000; display: none;}
+.zw_l{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; background:url(../images/bg.jpg) left top no-repeat #fff; background-size: 100% auto; display: none;}
+.zw_l >  img.position{ width: 100%; position: absolute; left: 0; top: 0; z-index: 5; background:url(../images/bg.jpg) left top no-repeat #fff; background-size: 100% auto;}
+.zw_l > img.show_logo{ width: 100%; position: absolute; left: 0; top: 0; z-index: 10;}
+.zw_l h3{ overflow: hidden; text-align: center; display: none; font-size: 36px; line-height: 50px; text-align: left; padding-top: 100px; color: #b81d22; padding-left: 50px;}
+.zw_l ul{ padding:0 50px 0 100px; overflow: hidden; display: none;}
+.zw_l li{ font-size: 24px; color: #b81d22; line-height: 48px; list-style-type:decimal}
+.zw_l p{ text-align: center; width: 100%; position: absolute; left: 0; bottom: 150px; z-index: 60;}
+.zw_l p img{ width: auto; float: none;}
+.sec_c li{ width: 50%; display: inline-block; margin-right: 50%; padding-right: 10px; box-sizing:border-box; text-align: right; font-size: 30px; line-height: 40px; color: #959595; margin: 40px 0; position: relative;}
+.sec_c li span{ width: 12px; height: 12px; overflow: hidden; background-color: #959595; border-radius: 50%; position: absolute; right: -6px; top: 5px;}
+.sec_c li.r{ width: 50%; margin-left: 50%; padding-left: 10px; text-align: left;}
+.sec_c li.r span{ left: -6px; right: auto; top: 5px;}
+.sec_c li b{ font-weight: normal;}
+.sec_c .c_center{ width: 2px; height: 100%; position: absolute; left: 50%; margin-left: -1px; background-color: #959595; overflow: hidden; margin-top: 20%;}
+.sec_d{ width: 100%;overflow: hidden; position: relative;}
+.sec_d .c_center{ width: 2px; height: 85%; position: absolute; left: 50%; margin-left: -1px; background-color: #959595; overflow: hidden; margin-top: 0%;}
+.sec_d p{ width: 100%; overflow: hidden; text-align: center; color: #b81d22; font-weight: bold; font-size: 60px; height: 60px; line-height: 60px; font-weight: bold; position: absolute; left: 0; top: 85%;}
+.sec_e{ overflow: hidden; background-color: #b81d22; position: relative;}
+.sec_e .tel{ width: 230px; height: 70px; background-color: #fff; color: #b81c22; line-height: 70px; text-align: center; font-size: 40px; font-weight: bold; border-radius: 40px; margin:45px 0 0 60px;}
+.sec_e .e_logo{ width: 200px; height: 200px; position: absolute; right: 40px; top: 40px;}
+.sec_e .dy{ width: 328px; font-size: 24px; color: #ffffff; text-align: center; position: absolute; left: 44px; top: 153px; line-height: 40px;}
+.sec_e .zy{ width: 280px; font-size: 24px; color: #ffffff; text-align: center; position: absolute; left: 318px; top: 455px; line-height: 40px;}
+.sec_e .xy{ width: 168px; position: absolute; left: 70px; top: 540px;}
+
+/*--- 音乐图标 ---*/
+.u-globalAudio{position:fixed;bottom:28px;right:10%;z-index:9999;display:block;color:#fff;text-decoration:none;font-size:24px;}
+.u-globalAudio span{position:absolute;top:10px;left:-60px;text-shadow:1px 1px 1px #000;letter-spacing:2px;opacity:0;-webkit-transition:all .2s linear;-webkit-transform:translateX(-20px);}
+.u-globalAudio .icon-music{display:block;width:54px;height:54px;background:url(../images/units-icons.png) left top;}
+.u-globalAudio.z-play .icon-music{-webkit-animation:reverseRotataZ 1.2s linear infinite;}
+.u-globalAudio span.z-show{opacity:1;-webkit-transform:translateX(0px);}
+.u-globalAudio .coffee-steam-box{-webkit-transform:translate(-40px,-40px);}
+@-webkit-keyframes reverseRotataZ{
+0%{-webkit-transform:rotateZ(0deg);}
+100%{-webkit-transform:rotateZ(-360deg);}
+}
+.jt{ animation: jt 2s infinite; -webkit-animation: jt 2s infinite; width: 25px; height: 25px; overflow: hidden; border-right: 2px solid #999; border-bottom: 2px solid #999; transform: rotate(45deg); -webkit-transform: rotate(45deg); position: absolute; bottom: 5%; left: 50%; margin-left: -10px;}
+@keyframes jt
+{
+0%   { bottom: 5%;}
+45%  { bottom:2%;}
+50%  { bottom: 8%; opacity: 0;}
+100%  { bottom: 5%; opacity: 1;}
+}
+@-webkit-keyframes jt
+{
+0%   { bottom: 5%;}
+45%  { bottom:2%;}
+50%  { bottom: 8%; opacity: 0;}
+100%  { bottom: 5%; opacity: 1;}
+}
+.tim_01{ animation-delay:0.2s; -webkit-animation-delay:0.2s;}
+.tim_02{ animation-delay:0.5s; -webkit-animation-delay:0.5s;}
+.tim_03{ animation-delay:0.8s; -webkit-animation-delay:0.8s;}
+.tim_04{ animation-delay:1s; -webkit-animation-delay:1s;}
+.tim_05{ animation-delay:1.3s; -webkit-animation-delay:1.3s;}
+
+.tims_01{ animation-delay:0.5s; -webkit-animation-delay:0.5s;}
+.tims_02{ animation-delay:0.7s; -webkit-animation-delay:0.7s;}
+.tims_03{ animation-delay:0.9s; -webkit-animation-delay:0.9s;}
+.tims_04{ animation-delay:1s; -webkit-animation-delay:1s;}
+.tims_05{ animation-delay:1.3s; -webkit-animation-delay:1.3s;}
+.tims_06{ animation-delay:1.6s; -webkit-animation-delay:1.6s;}
+.tims_07{ animation-delay:1.8s; -webkit-animation-delay:1.8s;}
+.tims_08{ animation-delay:2s; -webkit-animation-delay:2s;}
+.tims_09{ animation-delay:2.2s; -webkit-animation-delay:2.2s;}
+.tims_10{ animation-delay:2.4s; -webkit-animation-delay:2.4s;}
+.tims_11{ animation-delay:2.6s; -webkit-animation-delay:2.6s;}
+.tims_12{ animation-delay:2.8s; -webkit-animation-delay:2.8s;}
+.tims_13{ animation-delay:3s; -webkit-animation-delay:3s;}
+
+/*--- 加载进度条样式 ---*/
+.spinner{margin:0 auto;width:100%; height: 100%; background-color: #fff; text-align:center;font-size:20px;margin-top:20%; position: fixed; z-index: 99999;}
+.spinner>div{background-color:#67cf22;height:60px;width:6px;display:inline-block;-webkit-animation:stretchdelay 1.2s infinite ease-in-out;animation:stretchdelay 1.2s infinite ease-in-out;margin:0 3px}
+.spinner>p{padding-top:15px;color:#666}
+.spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}
+.spinner .rect3{-webkit-animation-delay:-1.0s;animation-delay:-1.0s}
+.spinner .rect4{-webkit-animation-delay:-0.9s;animation-delay:-0.9s}
+@-webkit-keyframes stretchdelay{0%,40%,100%{-webkit-transform:scaleY(0.4)}
+20%{-webkit-transform:scaleY(1.0)}
+}
+@keyframes stretchdelay{0%,40%,100%{transform:scaleY(0.4);-webkit-transform:scaleY(0.4)}
+20%{transform:scaleY(1.0);-webkit-transform:scaleY(1.0)}
+}

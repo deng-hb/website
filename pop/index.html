@@ -1,0 +1,56 @@
+<!doctype>
+<html>
+<head>
+		<meta charset="utf-8" />
+	
+	<style type="text/css">
+	
+	
+/* body */
+	body{background-color:#fbfaf5;overflow-x:hidden;position:relative;word-break:break-word;}
+		/* pop */
+	.pop{background-color:rgba(0,0,0,.6);bottom:0;left:0;position:fixed;right:0;top:0;z-index:1000;}
+	.pop_bg{background-color:#000;bottom:0;left:0;opacity:.7;position:absolute;right:0;top:0;
+		z-index:1001;filter:alpha(opacity=70);}
+	.pop_box{background-color:#fff;box-shadow:0 0 4px rgba(0,0,0,.2);left:50%;margin:0 0 0 -154px;
+		position:absolute;top:50%;width:308px;z-index:1002;}
+	.pop_main_box{display:table;text-align:center;width:100%;}
+	.pop_main_txt{color:#000;font-size:16px;padding:28px 0 40px;}
+	.pop_main_txt2{color:#000;font-size:16px;padding:28px 28px 40px;text-align:left;}
+	.pop_foot{background-color:rgba(0,0,0,.03);display:block;font-size:0;}
+	.pop_foot a{color:#000;display:inline-block;font-size:18px;height:52px;line-height:52px;
+		overflow:hidden;position:relative;text-align:center;width:153px;}
+	.pop_foot a.pop_cancel{float:left;}
+	.pop_foot a.pop_submit{float:right;}
+	.pop_foot a:before{border-radius:50%;content:"";height:180px;
+		left:50%;pointer-events:none;position:absolute;top:50%;width:180px;
+		-webkit-transform:translateX(-50%) translateY(-50%);}
+		
+	/* pop_active */
+		.pop_foot a.active:before{background-color:rgba(0,0,0,.05);-webkit-animation:ani_01 .5s;}
+	</style>
+</head>
+<body>
+	<a href="#" onclick="show();return false;">click</a>
+	<div id="pop" class="pop" style="display:none;">
+				<div class="pop_box">
+					<div class="pop_main">
+						<div class="pop_main_box">
+							<!-- class="pop_main_txt2">确认提交</-->
+							<div id="pop_txt3" class="pop_main_txt">确认提交</div>
+						</div>
+					</div>
+					<div class="clear pop_foot">
+						<a id="pop_cancel3" class="pop_cancel" href="javascript:void(0)">取消</a>
+						<a id="pop_submit3" class="pop_submit" href="javascript:void(0)">确定</a>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+			var show = function()
+			{
+				document.getElementById('pop').style.display = "block";
+			}
+			</script>
+</body>
+</html>
